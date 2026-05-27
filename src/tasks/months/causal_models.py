@@ -5,7 +5,7 @@ Expected output: " Sunday"
 """
 
 import random
-from cl_patch import CausalModel
+from src.cl_patch import CausalModel
 
 TEMPLATE = "Q: What month is {offset} months after {input}?\nA:"
 

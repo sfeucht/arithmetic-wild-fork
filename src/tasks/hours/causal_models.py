@@ -5,7 +5,7 @@ Expected output: " 20:00"
 """
 
 import random
-from cl_patch import CausalModel
+from src.cl_patch import CausalModel
 
 # Hours as zero-padded strings for consistent tokenization
 TEMPLATE = "Q: In 24-hour time, it is now {input}:00. What time will it be in {offset} hours?\nA: In 24-hour time, it will be "

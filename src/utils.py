@@ -7,7 +7,7 @@ from pathlib import Path
 from huggingface_hub import snapshot_download
 from datasets import load_from_disk, Dataset
 from causalab.neural.featurizers import Featurizer
-from cl_patch import CounterfactualDataset
+from src.cl_patch import CounterfactualDataset
 
 # for DAS, we go up to three cycles, and then filter out incorrect prompts. 
 THREE_CYCLES = {
@@ -58,8 +58,6 @@ def load_dataset(dataset_path: str) -> CounterfactualDataset:
         raise TypeError(f"Expected Dataset, got {type(hf_dataset).__name__}")
     return CounterfactualDataset(dataset=hf_dataset, id=path.name)
 
-# Tal535/Arithmetic-In-The-Wild_DAS
-
 def load_subspace_hf(task, variable, layer=18, token_position="last_token"):
     assert layer == 18 and token_position == "last_token"
     assert task in ["addition", "hours", "months", "weekdays"]
@@ -73,7 +71,7 @@ def load_subspace_hf(task, variable, layer=18, token_position="last_token"):
     
     # returns absolute path to the cached file
     local_dir = snapshot_download(
-        repo_id="Tal535/Arithmetic-In-The-Wild_DAS",
+        repo_id="", #OMITTED FOR ANONYMITY 
         repo_type="dataset",
         allow_patterns=folder_name + "/*",   # or ["path/in/**"] for recursive
     )
@@ -94,7 +92,7 @@ def load_subspace_old(run_id, task_folder, subspace_layer, token_position="last_
         else:
             modulename = f"ResidualStream(Layer-{subspace_layer},block_output,Token-{token_position})"
 
-    das_path = os.path.join("/mnt/polished-lake/home/sfeucht/causalab-internal/nma/outputs/das", model_name, task_folder, run_id)
+    das_path = os.path.join("OMITTED", model_name, task_folder, run_id)
     model_path = os.path.join(
         das_path,
         "models",

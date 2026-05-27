@@ -8,7 +8,7 @@ Expected output: "10"
 """
 
 import random
-from cl_patch import CausalModel
+from src.cl_patch import CausalModel
 
 # Constants
 NUMBERS = [str(i) for i in range(1, 101)]
