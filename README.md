@@ -7,3 +7,5 @@ See `neuron_rebuttal.pdf` for these results:
 2. We share results for a sweep over neuron thresholds. By using a slightly more lenient threshold, we find six extra neurons, that when combined with our original 28 neurons, explain 100% of Llama’s performance for addition. These neurons appear to behave similarly to the ones we studied in-depth in the main text (based on activation patterns and alignment with Fourier probes). 
 
 See `fourier_rebuttal.pdf` for extra Fourier steering results:
+1. `{addition,hours,months,weekdays}_target_topk_after_steering.pdf` show top-1,2,3 accuracy for Fourier steering experiments with $\alpha=10$. 
+2. `months_mean_prob_matrix_scale_grid.pdf` shows heatmaps for model output probabilities when steering Fourier probes for $T\in\{2,5,10,50\}$ with $\alpha\in\{1,5,10,15,20,25,30,35\}$. Even for smaller scaling factors, we can observe that probability mass shifts most towards the desired output concept. 
